@@ -63,7 +63,7 @@ WORKDIR /srv/jekyll
 RUN gem install --no-document jekyll bundler
 RUN bundle install --no-cache
 
-EXPOSE 8080
+# EXPOSE 8080
 
 COPY bin/entry_point.sh /tmp/entry_point.sh
 
@@ -73,3 +73,19 @@ COPY bin/entry_point.sh /tmp/entry_point.sh
 # USER $USERNAME
 
 CMD ["/tmp/entry_point.sh"]
+
+# added later from copilot
+
+FROM amirpourmand/al-folio:v0.13.1
+
+WORKDIR /srv/jekyll
+
+COPY Gemfile Gemfile.lock ./
+
+RUN bundle install
+
+COPY . .
+
+EXPOSE 4000
+
+CMD ["jekyll", "serve", "--watch", "--host", "0.0.0.0"]
