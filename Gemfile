@@ -27,3 +27,9 @@ group :other_plugins do
     gem 'feedjira'
     gem 'httparty'
 end
+
+# Added later by GitHub Copilot
+gem 'multi_xml', '0.6.0'
+gem 'sass-embedded', platforms: [:ruby] # Remove the specific version constraint
+gem 'activesupport', '7.2.2.1'
+gem 'ffi', platforms: [:ruby] # Remove the specific version constraint
