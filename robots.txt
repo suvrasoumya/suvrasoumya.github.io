@@ -1,1 +1,1 @@
-User-agent: * Disallow: Sitemap: https://suvrasoumya.github.io/sitemap.xml
+User-agent: * Disallow: Sitemap: https://suvrasoumya.github.io/suvrasoumya.github.io/sitemap.xml
