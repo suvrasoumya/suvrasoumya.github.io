@@ -30,6 +30,6 @@ Working as interest rates options trader at Barclays. Love dabbling in current a
 
 Went to Georgia Tech and BITS Pilani
 
-This is the [link](http://localhost:4000/us-markets/) to my visualization.
+# This is the [link](http://localhost:4000/us-markets/) to my visualization.
 
 This is currently a work in progress. Will update this as and when I can.
