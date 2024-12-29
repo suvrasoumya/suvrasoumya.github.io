@@ -14,6 +14,8 @@ Make your photos 1/3, 2/3, or full width. -->
 
 Lets try and incorporate our stock market analysis here
 
+This is the [link](http://localhost:4000/us-markets/) to my visualization.
+
 To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
     ---
