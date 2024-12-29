@@ -646,3 +646,9 @@ jsonresume:
   - languages
   - interests
   - references
+
+
+  # Navigation links - added later on copilot suggestion
+nav_links:
+  - title: "US Markets"
+    url: "/us-markets/"
