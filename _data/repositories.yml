@@ -1,14 +1,18 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - suvrasoumya
+  # - torvalds
+  # - alshedivat
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
+  
+  - firmai/financial-machine-learning
+  - quantpie/Merton-Jump-Diffusion-Model-Python-code
+  - robcarver17/systematictradingexamples
   - jquery/jquery
   - FortAwesome/Font-Awesome
   - mathjax/MathJax
   - jpswalsh/academicons
+  - alshedivat/al-folio
+  - jekyll/jekyll

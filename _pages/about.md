@@ -15,7 +15,7 @@ profile:
   #   <p>123 your address street</p>
   #   <p>Your City, State 12345</p>
 
-news: true # includes a list of news items
+news: false # true # includes a list of news items
 # selected_papers: true # includes a list of papers marked as "selected={true}"
 # social: true # includes social icons at the bottom of the page
 ---
@@ -29,3 +29,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 Working as interest rates options trader at Barclays. Love dabbling in current affairs and exciting tech.
 
 Went to Georgia Tech and BITS Pilani
+
+This is the [link](http://localhost:4000/us-markets/) to my visualization.
+
+This is currently a work in progress. Will update this as and when I can.
