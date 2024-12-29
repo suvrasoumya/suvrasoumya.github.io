@@ -18,6 +18,8 @@ profile:
 news: false # true # includes a list of news items
 # selected_papers: true # includes a list of papers marked as "selected={true}"
 # social: true # includes social icons at the bottom of the page
+# This is the [link](http://localhost:4000/us-markets/) to my visualization.
+
 ---
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
@@ -29,7 +31,5 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 Working as interest rates options trader at Barclays. Love dabbling in current affairs and exciting tech.
 
 Went to Georgia Tech and BITS Pilani
-
-# This is the [link](http://localhost:4000/us-markets/) to my visualization.
 
 This is currently a work in progress. Will update this as and when I can.
