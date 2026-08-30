@@ -1,7 +1,7 @@
 ---
 layout: page
 title: India Markets Analysis
-description: Will link my github repo here - 
+description: Will link my github repo here -
 img: assets/img/12.jpg
 importance: 1
 category: work

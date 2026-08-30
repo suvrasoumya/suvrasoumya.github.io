@@ -24,5 +24,3 @@ nav_order: 5
   <iframe src="assets/jupyter/us_markets.html" width="100%" height="6000px" frameborder="0"></iframe> -->
 
 </div>
-
-
