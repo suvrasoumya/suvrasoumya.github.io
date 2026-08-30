@@ -1,18 +1,9 @@
-github_users:
-  - suvrasoumya
-  # - torvalds
-  # - alshedivat
-
-repo_description_lines_max: 2
+# Repositories listed on /repositories/. Rendered as a plain linked list by
+# _pages/repositories.md — the github-readme-stats / trophy card images were
+# removed (that free service rate-limits and every card rendered broken).
 
 github_repos:
-  
-  - firmai/financial-machine-learning
-  - quantpie/Merton-Jump-Diffusion-Model-Python-code
-  - robcarver17/systematictradingexamples
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
-  - alshedivat/al-folio
-  - jekyll/jekyll
+  - suvrasoumya/QCF_Modelling
+  - suvrasoumya/Exotic-Option-Pricing
+  - suvrasoumya/Dynamic-Delta-Hedging
+  - suvrasoumya/Vanilla_Option_Pricing
