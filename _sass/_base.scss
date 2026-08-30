@@ -215,6 +215,19 @@ ul.task-list input[type="checkbox"] {
   margin-right: 1rem;
 }
 
+// Small screens: cap the photo and centre it so the bio isn't pushed below
+// the fold behind a full-width image. Float layout kicks in at >= 576px.
+@media (max-width: 575.98px) {
+  .profile,
+  .profile.float-left,
+  .profile.float-right {
+    float: none !important;
+    width: auto;
+    max-width: 45vw;
+    margin: 0 auto 1rem;
+  }
+}
+
 @media (min-width: 576px) {
   .profile {
     width: 30%;
@@ -393,6 +406,13 @@ ul.task-list input[type="checkbox"] {
   &:hover {
     color: var(--global-hover-color);
   }
+}
+
+// Inline nav icons (search + theme toggle), replacing the tabler-icons webfont.
+.nav-icon {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em;
 }
 
 // Social (bottom)

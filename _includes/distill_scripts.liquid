@@ -161,8 +161,8 @@
 
 <!-- Removed Badges -->
 
-{% if site.enable_math %}
-  <!-- MathJax -->
+{% if site.enable_math and page.math %}
+  <!-- MathJax (opt in per page with `math: true` in the front matter) -->
   <script
     defer
     type="text/javascript"
