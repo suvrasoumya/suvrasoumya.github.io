@@ -11,31 +11,18 @@ nav_order: 5
      Delete this block (and revert its commit) if it isn't wanted. -->
 
 A small Jupyter notebook I keep for pulling market and macro data with
-`yfinance`, `pandas` and `plotly`, exported here as two interactive charts.
-
-The first is an animated bar chart of the largest economies ranked by GDP,
-stepping through one year at a time. Below it, a longer export collects a
-few exploratory figures: Apple's share price and market capitalisation over
-recent years, and the same GDP data shown as a race chart and as a table.
+`yfinance`, `pandas` and `plotly`, exported here as two interactive charts:
+Apple's share price against its market capitalisation, and an animated
+ranking of 24 major economies by GDP from 1989 to 2023 (World Bank figures).
 
 <div class="notebook">
 
   <iframe
-    id="nb-gdp-animation"
-    title="Animated bar chart: GDP of the top economies, year by year"
-    src="{{ '/assets/jupyter/us_markets_animation.html' | relative_url }}"
-    width="100%"
-    height="600px"
-    frameborder="0"
-    loading="lazy"
-  ></iframe>
-
-  <iframe
     id="nb-us-markets"
-    title="Notebook export: US equity data and World Bank GDP charts"
+    title="Notebook export: Apple share price and World Bank GDP charts"
     src="{{ '/assets/jupyter/us_markets.html' | relative_url }}"
     width="100%"
-    height="5200px"
+    height="1400px"
     frameborder="0"
     loading="lazy"
   ></iframe>
