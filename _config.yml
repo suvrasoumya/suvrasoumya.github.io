@@ -47,7 +47,7 @@ rss_icon: true
 # -----------------------------------------------------------------------------
 
 navbar_fixed: true
-footer_fixed: true
+footer_fixed: false # sticky (not overlay) footer -- it was eating two lines of small viewports
 search_enabled: true
 socials_in_search: true
 bib_search: true
