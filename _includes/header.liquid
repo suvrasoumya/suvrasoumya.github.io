@@ -121,7 +121,12 @@
             <!-- Search -->
             <li class="nav-item">
               <button id="search-toggle" title="Search" onclick="openSearchModal()">
-                <span class="nav-link">ctrl k <i class="ti ti-search"></i></span>
+                <span class="nav-link"
+                  >ctrl k
+                  <svg class="nav-icon" aria-hidden="true">
+                    <use href="{{ '/assets/icons/nav-icons.svg' | relative_url }}#icon-search"></use>
+                  </svg>
+                </span>
               </button>
             </li>
           {% endif %}
@@ -129,9 +134,15 @@
             <!-- Toogle theme mode -->
             <li class="toggle-container">
               <button id="light-toggle" title="Change theme">
-                <i class="ti ti-sun-moon" id="light-toggle-system"></i>
-                <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
-                <i class="ti ti-sun-filled" id="light-toggle-light"></i>
+                <svg class="nav-icon" id="light-toggle-system" aria-hidden="true">
+                  <use href="{{ '/assets/icons/nav-icons.svg' | relative_url }}#icon-sun-moon"></use>
+                </svg>
+                <svg class="nav-icon" id="light-toggle-dark" aria-hidden="true">
+                  <use href="{{ '/assets/icons/nav-icons.svg' | relative_url }}#icon-moon-filled"></use>
+                </svg>
+                <svg class="nav-icon" id="light-toggle-light" aria-hidden="true">
+                  <use href="{{ '/assets/icons/nav-icons.svg' | relative_url }}#icon-sun-filled"></use>
+                </svg>
               </button>
             </li>
           {% endif %}

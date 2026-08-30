@@ -395,6 +395,13 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+// Inline nav icons (search + theme toggle), replacing the tabler-icons webfont.
+.nav-icon {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em;
+}
+
 // Social (bottom)
 
 .social {
