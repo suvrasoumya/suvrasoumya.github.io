@@ -3,7 +3,11 @@
 # removed (that free service rate-limits and every card rendered broken).
 
 github_repos:
-  - suvrasoumya/QCF_Modelling
-  - suvrasoumya/Exotic-Option-Pricing
-  - suvrasoumya/Dynamic-Delta-Hedging
-  - suvrasoumya/Vanilla_Option_Pricing
+  - name: QCF_Modelling
+    url: https://github.com/suvrasoumya/QCF_Modelling
+  - name: Exotic-Option-Pricing
+    url: https://github.com/suvrasoumya/Exotic-Option-Pricing
+  - name: Dynamic-Delta-Hedging
+    url: https://github.com/suvrasoumya/Dynamic-Delta-Hedging
+  - name: Vanilla_Option_Pricing
+    url: https://github.com/suvrasoumya/Vanilla_Option_Pricing
