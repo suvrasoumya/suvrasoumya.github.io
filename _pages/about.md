@@ -7,6 +7,7 @@ permalink: /
 profile:
   align: right
   image: prof_pic_suvra.jpg
+  image_alt: Suvrasoumya Mohanty sitting on a wooden railing above a tree-lined coastline
   image_circular: false # crops the image to make it circular
   latest_posts: false
   rss_icon: false
