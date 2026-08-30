@@ -6,6 +6,18 @@ nav: true
 nav_order: 5
 ---
 
+<!-- DRAFT INTRO — pending Suvra's review. Purely describes what the two
+     embedded charts show; makes no claim about methodology or conclusions.
+     Delete this block (and revert its commit) if it isn't wanted. -->
+
+A small Jupyter notebook I keep for pulling market and macro data with
+`yfinance`, `pandas` and `plotly`, exported here as two interactive charts.
+
+The first is an animated bar chart of the largest economies ranked by GDP,
+stepping through one year at a time. Below it, a longer export collects a
+few exploratory figures: Apple's share price and market capitalisation over
+recent years, and the same GDP data shown as a race chart and as a table.
+
 <div class="notebook">
 
   <iframe
