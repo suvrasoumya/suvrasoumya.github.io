@@ -22,7 +22,7 @@ ranking of 24 major economies by GDP from 1989 to 2023 (World Bank figures).
     title="Notebook export: Apple share price and World Bank GDP charts"
     src="{{ '/assets/jupyter/us_markets.html' | relative_url }}"
     width="100%"
-    height="1400px"
+    height="1200"
     frameborder="0"
     loading="lazy"
   ></iframe>
@@ -30,11 +30,16 @@ ranking of 24 major economies by GDP from 1989 to 2023 (World Bank figures).
 </div>
 
 <script>
-  // Size the notebook iframe to its content instead of a hard-coded height, so
-  // nothing is trapped in a nested scroll. The export posts its scrollHeight.
+  // Size the notebook iframe to the height its content reports, so the page ends
+  // where the charts end and nothing is trapped in a nested scroll. Ignore
+  // sub-pixel churn: resizing the frame reflows the charts inside it, which makes
+  // them report again, and without this the two can chase each other.
   window.addEventListener("message", function (e) {
     if (!e.data || e.data.ns !== "us-markets-nb" || typeof e.data.h !== "number") return;
     var frame = document.getElementById("nb-us-markets");
-    if (frame) frame.style.height = e.data.h + 24 + "px";
+    if (!frame) return;
+    var next = e.data.h + 4;
+    if (Math.abs(parseInt(frame.style.height, 10) - next) <= 2) return;
+    frame.style.height = next + "px";
   });
 </script>

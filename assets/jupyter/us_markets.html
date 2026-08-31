@@ -7869,16 +7869,50 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
 </div>
 </main>
+<style>
+  /* `--no-input` hides the source but nbconvert still emits a wrapper for every
+     code cell. Cells with neither input nor output render as empty 10px strips
+     (23 of them here, 230px total, 8 trailing after the last chart). */
+  .jp-Cell.jp-mod-noOutputs.jp-mod-noInput {
+    display: none;
+  }
+</style>
 <script>
-  // Report content height to the parent page so the <iframe> can be sized to fit
-  // (avoids the hard-coded height that trapped most of this page in a nested scroll).
+  // Report content height to the parent so the <iframe> can be sized to fit.
+  //
+  // Measure the real content box, NOT documentElement.scrollHeight: plotly parks
+  // a 9000px scratch <svg> at top:-10000px, which inflates the document's scroll
+  // box well beyond where the charts actually end.
+  //
+  // Resizing the iframe reflows the charts, which fires resize in here again, so
+  // only post when the height actually changed by more than a pixel. That makes
+  // the handshake converge instead of oscillating.
   (function () {
+    var last = 0;
+    function contentHeight() {
+      var main = document.querySelector("main") || document.body;
+      var cs = window.getComputedStyle(document.body);
+      return Math.ceil(
+        main.getBoundingClientRect().bottom +
+          (window.pageYOffset || 0) +
+          parseFloat(cs.paddingBottom || 0) +
+          parseFloat(cs.marginBottom || 0)
+      );
+    }
     function report() {
-      parent.postMessage({ ns: "us-markets-nb", h: document.documentElement.scrollHeight }, "*");
+      var h = contentHeight();
+      if (Math.abs(h - last) <= 1) return;
+      last = h;
+      parent.postMessage({ ns: "us-markets-nb", h: h }, "*");
     }
     window.addEventListener("load", report);
     window.addEventListener("resize", report);
-    [400, 1200, 2500, 5000].forEach(function (t) { setTimeout(report, t); });
+    if (window.ResizeObserver) {
+      new ResizeObserver(report).observe(document.querySelector("main") || document.body);
+    }
+    [200, 600, 1500, 3000, 6000].forEach(function (t) {
+      setTimeout(report, t);
+    });
   })();
 </script>
 </body>
