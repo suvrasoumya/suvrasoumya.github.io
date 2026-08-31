@@ -175,6 +175,10 @@ kramdown:
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
+  - assets/jupyter/*.ipynb # keep the notebooks in the repo, but don't publish them:
+    # jekyll-jupyter-notebook renders every .ipynb it finds into a public
+    # <name>.ipynb.html with all source cells visible, and Jekyll also serves
+    # the raw .ipynb. /us-markets/ embeds its own --no-input export instead.
   - bin/
   - CONTRIBUTING.md
   - CUSTOMIZE.md
