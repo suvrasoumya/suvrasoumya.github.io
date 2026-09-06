@@ -11,3 +11,5 @@ assets/libs/
 node_modules/
 vendor
 .idea
+# Claude Code personal permission rules (not shared)
+.claude/settings.local.json
