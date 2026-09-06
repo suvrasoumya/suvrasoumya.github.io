@@ -31,15 +31,18 @@ ranking of 24 major economies by GDP from 1989 to 2023 (World Bank figures).
 
 <script>
   // Size the notebook iframe to the height its content reports, so the page ends
-  // where the charts end and nothing is trapped in a nested scroll. Ignore
-  // sub-pixel churn: resizing the frame reflows the charts inside it, which makes
-  // them report again, and without this the two can chase each other.
+  // where the charts end and nothing is trapped in a nested scroll. Compare
+  // against the *rendered* height, not the inline style string: the height="1200"
+  // fallback attribute otherwise keeps winning at layout time even after the
+  // inline style is set, leaving ~40px of dead space below the charts. Clearing
+  // the attribute and matching it to the style removes the conflict.
   window.addEventListener("message", function (e) {
     if (!e.data || e.data.ns !== "us-markets-nb" || typeof e.data.h !== "number") return;
     var frame = document.getElementById("nb-us-markets");
     if (!frame) return;
     var next = e.data.h + 4;
-    if (Math.abs(parseInt(frame.style.height, 10) - next) <= 2) return;
+    if (Math.abs(frame.getBoundingClientRect().height - next) <= 2) return;
     frame.style.height = next + "px";
+    frame.setAttribute("height", next);
   });
 </script>
