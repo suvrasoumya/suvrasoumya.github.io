@@ -9,7 +9,14 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-repositories",
+  },{id: "nav-writing",
+          title: "writing",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-repositories",
           title: "repositories",
           description: "",
           section: "Navigation",
@@ -23,10 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/us-markets/";
           },
-        },{id: "news-this-section-will-be-used-to-link-to-various-tools-that-i-will-build",
-          title: 'This section will be used to link to various tools that I will...',
-          description: "",
-          section: "News",},{
+        },{id: "post-normal-delta-vs-sabr-delta-a-1y10y-straddle-example",
+      
+        title: "Normal Delta vs SABR Delta: A 1y10y Straddle Example",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2026/normal-delta-vs-sabr-delta/";
+        
+      },
+    },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
