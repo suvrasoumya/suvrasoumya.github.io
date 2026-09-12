@@ -6,6 +6,7 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Suvrasoumya
 middle_name:
 last_name: Mohanty
+role: Interest rates options trader # appended to the homepage <title> tag only (see _includes/metadata.liquid)
 contact_note: # a short note shown under the contact icons on the about page
 description: Suvrasoumya Mohanty — interest rates options trader at Barclays.
 footer_text: >

@@ -35,7 +35,7 @@
       {{ page.title }} | {{ title }}
     {% endif %}
   {% else %}
-    {{ title }}
+    {{ title }}{% if site.role %} — {{ site.role }}{% endif %}
   {% endif %}
 </title>
 <meta name="author" content="{{ author_name }}">
