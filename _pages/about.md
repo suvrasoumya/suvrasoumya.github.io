@@ -28,8 +28,8 @@ Put your address / P.O. box / other info right below your picture. You can also 
 
 Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them. -->
 
-Working as interest rates options trader at Barclays. Love dabbling in current affairs and exciting tech.
+Interest rates options trader at Barclays, in New York. Day to day that's USD swaptions — vol, quoted and hedged in normal space.
 
-Went to Georgia Tech and BITS Pilani
+Georgia Tech and BITS Pilani before that.
 
-This is currently a work in progress. Will update this as and when I can.
+I like current affairs and whatever's happening in tech. Mostly I write up things I've worked through — most recently why normal and SABR delta can disagree completely on the same swaption — and put up the occasional chart, like the world's largest economies ranked from 1989 to now. More to come.
