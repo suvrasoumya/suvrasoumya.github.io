@@ -80,6 +80,14 @@ CI note: the push-triggered "Check for broken links" workflow has failed on
 every commit for months (upstream al-folio doc links) — ignore it. "Check for
 broken links on site" is the meaningful one.
 
+"Prettier code formatter" **is** meaningful and is expected green. It runs
+`npx prettier . --check` with `@shopify/prettier-plugin-liquid` over the whole
+repo, `.claude/agents/*.md` included. Before pushing, run `npm install` once
+then `npx prettier . --write`. Two gotchas: `npm install` rewrites the `name`
+field in `package-lock.json` — revert that, it isn't a formatting change; and
+prettier rewrites markdown `*italic*` to `_italic_` and adds Liquid whitespace
+trim markers (`{{ x -}}`), both of which render identically.
+
 Prose rule: don't invent new bio/marketing copy. If a page needs text that
 doesn't exist yet, ask.
 

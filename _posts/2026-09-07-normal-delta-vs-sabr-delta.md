@@ -5,7 +5,7 @@ date: 2026-09-07 00:00:00-0400
 related_posts: false
 ---
 
-Two traders can hold the same USD swaption and disagree completely on what their delta is. Not because one of them is wrong, but because delta isn't a property of the option — it's a property of the option *plus an assumption about how the vol surface moves when rates move*.
+Two traders can hold the same USD swaption and disagree completely on what their delta is. Not because one of them is wrong, but because delta isn't a property of the option — it's a property of the option _plus an assumption about how the vol surface moves when rates move_.
 
 Here's the cleanest way to see it.
 
@@ -25,7 +25,7 @@ So: 80 normal vol, vega ≈ 6.5c per vol bp (≈ $65k per vol bp on $100mm).
 
 ## Normal delta = 0
 
-Normal delta is the Bachelier partial derivative — bump the forward, hold the normal vol *at your strike* fixed:
+Normal delta is the Bachelier partial derivative — bump the forward, hold the normal vol _at your strike_ fixed:
 
 ```
 Δ_N = N(d),  d = (F − K) / (σ_N √T)
@@ -53,12 +53,12 @@ That's **−$6,800 per bp on $100mm**. Negative: you lose as rates rise. You're 
 
 ## Where the difference comes from
 
-| Component | ATM straddle |
-|---|---|
-| Price-curve term (∂V/∂F) | 0 |
+| Component                       | ATM straddle |
+| ------------------------------- | ------------ |
+| Price-curve term (∂V/∂F)        | 0            |
 | Vol-surface term (Vega × dσ/dF) | −0.7c per bp |
 
-An ATM straddle is the extreme case: the price-curve piece is exactly zero, so *100% of the SABR delta is the vol-rate correlation term*. Nothing else is left.
+An ATM straddle is the extreme case: the price-curve piece is exactly zero, so _100% of the SABR delta is the vol-rate correlation term_. Nothing else is left.
 
 Away from the money both terms are live, and the gap between the two deltas scales roughly as `Vega × dσ/dF` — negligible near ATM, dominant on the wings.
 
@@ -71,7 +71,7 @@ Every "delta" you can compute is a choice about how much of ∂σ_N/∂F you're 
 - **SABR** — backbone set by β, correlation by ρν. Lands between the two for most USD marks.
 - **Bartlett** — SABR plus the correlated α move: `+ (∂V/∂α) × ρν F^(−β)`. Hagan's original delta ignores that dα and dF move together; Bartlett puts it back.
 
-Black delta belongs on this ladder too, and it's worth naming why nobody uses it here: it holds *lognormal* vol fixed, which implies normal vol scales proportionally with the forward. On a 4% forward, +10bp of rates implies +2.5% of normal vol. USD hasn't respected that at these levels, which is exactly why the market quotes and hedges in normal space.
+Black delta belongs on this ladder too, and it's worth naming why nobody uses it here: it holds _lognormal_ vol fixed, which implies normal vol scales proportionally with the forward. On a 4% forward, +10bp of rates implies +2.5% of normal vol. USD hasn't respected that at these levels, which is exactly why the market quotes and hedges in normal space.
 
 ## Why it matters on the desk
 
@@ -79,4 +79,4 @@ Hedge the straddle above on normal delta and you run flat, feel hedged, and stil
 
 SABR delta pre-hedges that term. That's the entire argument for it.
 
-One honest caveat: which assumption is *right* is an empirical question, not a modelling one, and the answer is regime-dependent. The USD backbone flattens out in high-rate regimes and looks more lognormal when rates are pinned near zero. β isn't a constant of nature; it's a view.
+One honest caveat: which assumption is _right_ is an empirical question, not a modelling one, and the answer is regime-dependent. The USD backbone flattens out in high-rate regimes and looks more lognormal when rates are pinned near zero. β isn't a constant of nature; it's a view.
