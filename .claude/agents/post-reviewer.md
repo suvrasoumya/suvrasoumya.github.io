@@ -12,12 +12,14 @@ The author is an interest rates options trader writing about rates, vol, and der
 Check, in this order, and only report what is actually a problem:
 
 1. **Front matter**
+
    - `layout: post`, a quoted `title`, `related_posts: false` (house style; see the existing posts for the template).
    - `date:` has an explicit timezone offset (e.g. `2026-09-07 00:00:00-0400`). Run `date -u` and compare: if the date is at or after UTC now, flag it as **will not publish** — CI runs a bare `jekyll build` with no `--future`, so the post is silently skipped with no error. Recommend a time safely in the past.
    - `description:` present. Without it the OG/Twitter preview and schema.org description fall back to the generic site bio. Suggest a one-line description drawn from the post's own words, not new marketing copy.
    - Filename is `YYYY-MM-DD-slug.md` and the date in the filename matches `date:`.
 
 2. **Rendering pitfalls**
+
    - Math: MathJax is loaded **only on pages with `math: true` in the front matter** (`_config.yml` `enable_math` comment). If the post uses `$...$` or `$$...$$` and lacks `math: true`, the TeX will render as literal dollar signs — flag it. Inline `$...$` with underscores or asterisks inside can be eaten by kramdown (GFM input); `$$...$$` on its own line is safest for display math. Check `\\` line breaks inside `aligned` environments are doubled where the markdown needs it.
    - Code fences: bare ``` blocks with plain-text formulas render as monospace with no MathJax needed — that is how the first post does it and it is fine; just make sure every fence is closed.
    - Liquid: any literal `{{` or `{%` in the prose (e.g. in a formula) must be wrapped in `{% raw %}...{% endraw %}` or it breaks the build.
