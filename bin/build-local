@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# Build the site locally on Homebrew Ruby 4.x WITHOUT touching Gemfile/Gemfile.lock.
+#
+# Ruby 4.0 dropped a number of former default gems that al-folio's plugin chain
+# still needs. CI (Ruby 3.3.5) is unaffected, so the tracked Gemfile stays as-is;
+# this script builds against a throwaway copy under vendor/ (gitignored).
+#
+# Usage:  bin/build-local            # bundle install (if needed) + jekyll build
+#         bin/build-local serve      # same, then jekyll serve on :4000
+#         bin/build-local --future   # include future-dated posts (CI does NOT)
+set -euo pipefail
+
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+SCRATCH="$REPO/vendor/gemfile-build"
+mkdir -p "$SCRATCH"
+
+# Extra gems Ruby 4.x no longer ships by default.
+EXTRA_GEMS="csv observer ostruct mutex_m base64 bigdecimal logger benchmark drb getoptlong rexml"
+
+{
+  cat "$REPO/Gemfile"
+  echo
+  echo "# --- appended by bin/build-local (Ruby 4.x default-gem shims) ---"
+  for g in $EXTRA_GEMS; do echo "gem '$g'"; done
+} > "$SCRATCH/Gemfile"
+
+export BUNDLE_GEMFILE="$SCRATCH/Gemfile"
+export BUNDLE_PATH="$REPO/vendor/bundle"
+export JEKYLL_ENV="${JEKYLL_ENV:-development}"
+
+cd "$REPO"
+
+# Do NOT pass --without other_plugins: _plugins/external-posts.rb needs feedjira.
+bundle check >/dev/null 2>&1 || bundle install --quiet
+
+MODE="build"
+VERBOSE=0
+ARGS=()
+for a in "$@"; do
+  case "$a" in
+    serve)     MODE="serve" ;;
+    --verbose) VERBOSE=1 ;;
+    *)         ARGS+=("$a") ;;
+  esac
+done
+
+if [ "$MODE" = "serve" ]; then
+  exec bundle exec jekyll serve --host 127.0.0.1 --port 4000 "${ARGS[@]+"${ARGS[@]}"}"
+fi
+
+# Expected local-only noise (safe to ignore): Sass @import/unquote deprecation
+# warnings and `Terser Exception: "\xE2" on US-ASCII`. Both occur on a clean
+# checkout too and do not happen on the CI runner. The full log is kept in
+# vendor/build-local.log; by default only the signal is echoed.
+LOG="$REPO/vendor/build-local.log"
+set +e
+bundle exec jekyll build "${ARGS[@]+"${ARGS[@]}"}" >"$LOG" 2>&1
+STATUS=$?
+set -e
+
+if [ "$VERBOSE" = 1 ]; then
+  cat "$LOG"
+else
+  grep -inE "error|exception|warning: .*(liquid|front matter|yaml|conflict)|done in|jekyll [0-9]" "$LOG" \
+    | grep -viE "terser exception|sass|deprecat|@import|unquote|template_error" || true
+fi
+
+if [ "$STATUS" -ne 0 ]; then
+  echo "build FAILED (exit $STATUS) -- full log: $LOG" >&2
+  exit "$STATUS"
+fi
+echo "build ok -> $REPO/_site  (full log: $LOG)"

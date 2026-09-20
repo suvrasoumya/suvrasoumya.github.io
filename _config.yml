@@ -181,6 +181,8 @@ exclude:
     # <name>.ipynb.html with all source cells visible, and Jekyll also serves
     # the raw .ipynb. /us-markets/ embeds its own --no-input export instead.
   - bin/
+  - CLAUDE.md
+  - Claude outputs/
   - CONTRIBUTING.md
   - CUSTOMIZE.md
   - Dockerfile
